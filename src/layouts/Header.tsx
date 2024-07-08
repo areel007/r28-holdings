@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Logo from "../assets/images/R28_LOGO.png";
+import Logo1 from "../assets/images/LOGO.png";
 import { Menu } from "./Menu";
 import { Hamburger } from "../components/Hamburger";
 import { useEffect, useState } from "react";
@@ -38,13 +39,13 @@ export const Header = ({ menu, handleOpenMobileMenu, isMobileMenuOut, handleClos
 
     return (
         <header
-            className={`h-[108px] w-full fixed left-0 top-0 z-[3] transition-all ${scrolled ? "bg-white shadow" : "bg-transparent"
+            className={`h-[128px] w-full fixed left-0 top-0 z-[3] transition-all ${scrolled ? "bg-white shadow" : "bg-transparent"
                 }`}
         >
             <div className="h-full max-w-[1248px] w-[90%] mx-auto flex justify-between items-center">
                 <Link to="/">
                     <img
-                        src={Logo}
+                        src={scrolled ? Logo1 : Logo}
                         alt="r28 logo"
                         width={70}
                         height={90}
@@ -52,7 +53,7 @@ export const Header = ({ menu, handleOpenMobileMenu, isMobileMenuOut, handleClos
                     />
                 </Link>
 
-                <div className="h-full">
+                <div className="flex items-center">
                     <Menu menu={menu} scrolled={scrolled} />
 
                     {

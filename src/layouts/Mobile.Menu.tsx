@@ -13,13 +13,13 @@ type TMobileMenu = {
 }
 
 export const MobileMenu = ({ isMobileMenuOut, menu, step, handleChooseStep, submenu }: TMobileMenu) => {
-    return <div className={`w-full p-[20px] bg-white fixed top-[108px] z-[5] transition ease-in-out capitalize shadow ${isMobileMenuOut ? 'translate-x-[0]' : 'translate-x-[-100%]'}`}>
+    return <div className={`w-full p-[20px] bg-white fixed top-[108px] z-[5] transition ease-in-out capitalize shadow text-[14px] ${isMobileMenuOut ? 'translate-x-[0]' : 'translate-x-[-100%]'}`}>
         {step === 1 ? <ul className="flex flex-col gap-[10px]">
             {
                 menu.map((_menu, i) => {
-                    return <li key={i}>
+                    return <li key={i} onClick={() => handleChooseStep(_menu.submenu)}>
                         {
-                            _menu.submenu ? <span className="flex justify-between items-center" onClick={() => handleChooseStep(_menu.submenu)}><span>{_menu.name}</span> <span>&gt;</span></span> : <a href={_menu.to}>{_menu.name}</a>
+                            _menu.submenu ? <span className="flex justify-between items-center"><span >{_menu.name}</span> <span>&gt;</span></span> : <a href={_menu.to}>{_menu.name}</a>
                         }
                     </li>
                 })

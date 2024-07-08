@@ -1,8 +1,15 @@
-import { useState, ReactNode } from "react"
+import { useState, ReactNode, useEffect } from "react"
 import { Card } from "../components/Card"
 import { Hero } from "../layouts/Hero"
-import { Link } from "react-router-dom"
-import { Growth } from "../components/Growth"
+// import { Link } from "react-router-dom"
+import { ConstructionEngineering } from "../assets/icons/sectors"
+import { RealEstateIcon } from "../assets/icons/sectors"
+import { TelecommunicationTechnology } from "../assets/icons/sectors"
+import { AviationIcon } from "../assets/icons/sectors"
+import { ManufacturingIcon } from "../assets/icons/sectors"
+import { QuarryingMining } from "../assets/icons/sectors"
+import { RetailBusinessesIcon } from "../assets/icons/sectors"
+import { HealthcareIcon } from "../assets/icons/sectors"
 
 type subContent = {
     name: string;
@@ -26,78 +33,167 @@ export const Home = () => {
             direction: '0',
             color: '#214A74',
             isReveal: false,
-            title: 'Capital',
+            title: 'Construction & Engineering Solutions',
             subtitle: '$67B AUM',
             description: 'Large-scale control-oriented private equity investing',
-            svg: <Growth />,
+            svg: <ConstructionEngineering />,
             subContent: {
-                name: 'product',
-                contents: ['hshsjsjjs', 'retsysusus', 'teteydydudu']
+                name: 'Companies',
+                contents: [
+                    {
+                        name: "arbico plc",
+                        url: "/our-investments/arbico"
+                    },
+                    {
+                        name: "nivafer engineering & construction limited",
+                        url: "/our-investments/nivafer"
+                    }
+                ]
             }
         },
         {
             direction: '0',
             color: '#2F6871',
             isReveal: false,
-            title: 'Growth',
+            title: 'Real Estate',
             subtitle: '$24B AUM',
             description: 'Large-scale control-oriented private equity investing',
-            svg: <Growth />,
+            svg: <RealEstateIcon />,
             subContent: {
                 name: 'product',
-                contents: ['hshsjsjjs', 'retsysusus', 'teteydydudu']
-            }
-        },
-        {
-            direction: '-100%',
-            color: '#5E6D47',
-            isReveal: false,
-            title: 'Impact',
-            subtitle: '$18B AUM',
-            description: 'Large-scale control-oriented private equity investing',
-            svg: <Growth />,
-            subContent: {
-                name: 'product',
-                contents: ['hshsjsjjs', 'retsysusus', 'teteydydudu']
+                contents: [
+                    {
+                        name: "first investment development company",
+                        url: "/our-investments/fidc"
+                    }
+                ]
             }
         },
         {
             direction: '0',
             color: '#BB9E5E',
             isReveal: false,
-            title: 'Angelo Gordon',
+            title: 'Telecommunication & Technology Solutions',
             subtitle: '$18B AUM',
             description: 'Large-scale control-oriented private equity investing',
-            svg: <Growth />,
+            svg: <TelecommunicationTechnology />,
             subContent: {
                 name: 'product',
-                contents: ['hshsjsjjs', 'retsysusus', 'teteydydudu']
-            }
-        },
-        {
-            direction: '0',
-            color: '#553B64',
-            isReveal: false,
-            title: 'Real Estate',
-            subtitle: '$18B AUM',
-            description: 'Large-scale control-oriented private equity investing',
-            svg: <Growth />,
-            subContent: {
-                name: 'product',
-                contents: ['hshsjsjjs', 'retsysusus', 'teteydydudu']
+                contents: [
+                    {
+                        name: "biswal",
+                        url: "/our-investments/biswal"
+                    },
+                    {
+                        name: "afl networks",
+                        url: "/our-investments/afl"
+                    }
+                ]
             }
         },
         {
             direction: '-100%',
-            color: '#8B5329',
+            color: '#5E6D47',
             isReveal: false,
-            title: 'Market Solutions',
+            title: 'Aviation & Infrastructure',
             subtitle: '$18B AUM',
             description: 'Large-scale control-oriented private equity investing',
-            svg: <Growth />,
+            svg: <AviationIcon />,
             subContent: {
                 name: 'product',
-                contents: ['hshsjsjjs', 'retsysusus', 'teteydydudu']
+                contents: [
+                    {
+                        name: "asaba airport company",
+                        url: "/our-investments/aac"
+                    }
+                ]
+            }
+        },
+
+        {
+            direction: '0',
+            color: '#5B5329',
+            isReveal: false,
+            title: 'Manufacturing',
+            subtitle: '$18B AUM',
+            description: 'Large-scale control-oriented private equity investing',
+            svg: <ManufacturingIcon />,
+            subContent: {
+                name: 'product',
+                contents: [
+                    {
+                        name: "veenocks",
+                        url: "/our-investments/veenocks"
+                    },
+                    {
+                        name: "Ecojoinery",
+                        url: "/our-investments/eco-joinery"
+                    },
+                    {
+                        name: "OSC Garments",
+                        url: "/our-investments/osc"
+                    },
+                ]
+            }
+        },
+
+        {
+            direction: '0',
+            color: '#8B5329',
+            isReveal: false,
+            title: 'Quarrying & Mining',
+            subtitle: '$18B AUM',
+            description: 'Large-scale control-oriented private equity investing',
+            svg: <QuarryingMining />,
+            subContent: {
+                name: 'product',
+                contents: [
+                    {
+                        name: "prestige chen jun",
+                        url: "/our-investments/prestige-chen-jun"
+                    }
+                ]
+            }
+        },
+
+        {
+            direction: '0',
+            color: '#553B64',
+            isReveal: false,
+            title: 'Retail Business',
+            subtitle: '$18B AUM',
+            description: 'Large-scale control-oriented private equity investing',
+            svg: <RetailBusinessesIcon />,
+            subContent: {
+                name: 'product',
+                contents: [
+                    {
+                        name: "posmoreti",
+                        url: "/our-investments/posmoreti"
+                    },
+                    {
+                        name: "anker",
+                        url: "/our-investments/anker"
+                    }
+                ]
+            }
+        },
+        {
+            direction: '-100%',
+            color: '#2B5629',
+            isReveal: false,
+            title: 'Healthcare',
+            subtitle: '$18B AUM',
+            description: 'Large-scale control-oriented private equity investing',
+            svg: <HealthcareIcon />,
+            subContent: {
+                name: 'product',
+                contents: [
+                    {
+                        name: "utopian consulting llc",
+                        url: "/our-investments/utopian"
+                    }
+                ]
             }
         },
     ])
@@ -114,82 +210,87 @@ export const Home = () => {
         });
     };
 
-
+    // scroll top
+    useEffect(() => { window.scrollTo(0, 0) }, [])
 
     return <>
         <Hero />
         <div className="w-full h-auto py-[60px] md:py-[100px]" id="overview">
             <div className="max-w-[1280px] w-[90%] mx-auto">
                 <span className="text-[14px] md:text-[16px]">Overview</span>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-[30px] lg:gap-[60px]">
-                    <p className="text-[30px] md:text-[40px] lg:text-[60px] font-[300] leading-[1]">Focussed on Impact</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-[20px] md:gap-[30px] lg:gap-[60px] mt-[10px]">
+                    <p className="text-[30px] md:text-[40px] lg:text-[60px] font-[300] leading-[1.2] md:leading-[1.1]">Focused on Impact</p>
                     <div>
-                        <p className="text-[18px] md:text-[20px] font-[200] mb-[16px]">Through R28's family office roots, entrepreneurial heritage, and West Coast base, we have developed a differentiated approach to alternative investments based on innovation, organic growth, and a culture of openness and collaboration. Since our founding in 1992, we have developed a distinct position in the industry, with a broadly diversified set of investment strategies, including private equity, impact, credit, real estate, and market solutions.</p>
+                        <p className="text-[14px] md:text-[16px] font-[300] mb-[16px] leading-[1.6]">R28 is a dynamic private investment holding company based in Nigeria, dedicated to creating sustainable value through strategic investments across various industry sectors. Founded on the principles of entrepreneurship and a commitment to excellence, we leverage local market insights to identify and capitalise on investment opportunities that spur economic growth and deliver tangible results.
+                            <br /><br />
 
-                        <Link to="/overviews" className="flex items-center gap-[20px]">
+                            Our commitment to innovation, sustainable growth, and collaboration underpins our diversified investment strategies across the construction, real estate, aviation, oil & gas, mining, telecommunications, and manufacturing sectors. We are committed to generating long-term value and positive socio-economic impact.
+                        </p>
+
+                        {/* <Link to="/overviews" className="flex items-center gap-[20px]">
                             <span className="w-[15px] h-[15px] rounded-full bg-blue-700"></span>
                             <span>Our portfolio companies</span>
                             <span>&gt;</span>
-                        </Link>
+                        </Link> */}
                     </div>
                 </div>
             </div>
         </div>
         <div className="stat py-[60px] md:py-[100px]">
-            <div className="max-w-[1248px] w-[90%] mx-auto relative z-[2] grid grid-cols-1 lg:grid-cols-[40%_1fr] gap-[50px] lg:gap-0">
-                <h1 className="text-white text-[30px] md:text-[40px] lg:text-[60px] max-w-full lg:max-w-[245px] w-[100%] leading-[1] font-[300]">R28 at a Glance</h1>
-                <div className="grid grid-cols-2 gap-[40px]">
-                    <div className="border-l border-white pl-[20px] md:pl-[40px]">
-                        <span className="block text-[50px] lg:text-[80px] text-white">$212B</span>
-                        <span className="text-gray-300">AUM</span>
+            <div className="max-w-[1248px] w-[90%] mx-auto relative z-[2] grid grid-cols-1 gap-[50px] xl:gap-[100px]">
+                <h1 className="text-white text-[40px] md:text-[50px] lg:text-[50px] leading-[1] font-[300]">R28 at a Glance</h1>
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-[40px]">
+                    <div className="">
+                        <span className="block text-[50px] 2xl:text-[80px] text-white">10</span>
+                        <span className="text-gray-300 text-[14px] md:text-[16px]">Business Sectors</span>
                     </div>
 
                     <div className="border-l border-white pl-[20px] md:pl-[40px]">
-                        <span className="block text-[50px] lg:text-[80px] text-white">300+</span>
-                        <span className="text-gray-300">
-                            Active Portfolio Companies Headquartered in more than 30 countries
+                        <span className="block text-[50px] 2xl:text-[80px] text-white">14</span>
+                        <span className="text-gray-300 text-[14px] md:text-[16px]">
+                            Active Portfolio Companies
+                        </span>
+                    </div>
+
+                    <div className="border-l-none lg:border-l border-white pl-0 lg:pl-[40px]">
+                        <span className="block text-[50px] 2xl:text-[80px] text-white">2000+</span>
+                        <span className="text-gray-300 text-[14px] md:text-[16px]">
+                            Professional Employees
                         </span>
                     </div>
 
                     <div className="border-l border-white pl-[20px] md:pl-[40px]">
-                        <span className="block text-[50px] lg:text-[80px] text-white">1800+</span>
-                        <span className="text-gray-300">
-                            Employees around the world
+                        <span className="block text-[50px] 2xl:text-[80px] text-white">100</span>
+                        <span className="text-gray-300 text-[14px] md:text-[16px]">
+                            Operation professionals with specialised sector knowledge and experience
                         </span>
                     </div>
 
-                    <div className="border-l border-white pl-[20px] md:pl-[40px]">
-                        <span className="block text-[50px] lg:text-[80px] text-white">52</span>
+                    {/* <div className="border-l border-white pl-[20px] md:pl-[40px]">
+                        <span className="block text-[50px] lg:text-[80px] text-white">120+</span>
                         <span className="text-gray-300">
-                            Operations professionals with specialized sector knowledge and experience
-                        </span>
-                    </div>
-
-                    <div className="border-l border-white pl-[20px] md:pl-[40px]">
-                        <span className="block text-[50px] lg:text-[80px] text-white">400</span>
-                        <span className="text-gray-300">
-                            Diverse Directors appointed by our portfolio companies since 2017
+                            Directors combined years of professional experience
                         </span>
                     </div>
 
                     <div className="border-l border-white pl-[20px] md:pl-[40px]">
                         <span className="block text-[50px] lg:text-[80px] text-white">75%</span>
                         <span className="text-gray-300">
-                            of TPG’s investors are invested across three or more of our products
+                            xxxxx
                         </span>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
         <div className="py-[60px] md:py-[100px]">
             <div className="max-w-[1248px] w-[90%] mx-auto">
                 <span>What we do</span>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-[30px] lg:gap-[50px] mb-[40px] lg:mb-[100px]">
-                    <p className="text-[30px] md:text-[40px] lg:text-[60px] font-[300] leading-[1] capitalize">Our platforms</p>
-                    <p className="text-[20px] lg:text-[20px] font-[300]">
-                        R28 puts capital to work through six platforms. Throughout our history, we have grown organically into opportunities we identified through deep thematic work in key sectors and geographies, and through strategic acquisitions to diversify our offerings.</p>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-[20px] md:gap-[30px] lg:gap-[50px] mb-[40px] lg:mb-[100px] mt-[10px]">
+                    <p className="text-[30px] md:text-[40px] font-[300] leading-[1.2] md:leading-[1.1]">Building Valuable and Sustainable Businesses</p>
+                    <p className="text-[14px] md:text-[16px] font-[300] mb-[16px] leading-[1.6]">
+                        Collectively, our companies represent our involvement across ten (10) sectors committed to delivering sustainable value for our stakeholders while enhancing societal impact.</p>
                 </div>
-                <div className="w-full max-w-[1100px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-[30px]">
+                <div className="w-full max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-4 gap-[30px]">
 
                     {cards.map((_card, i) => {
                         return <Card card={_card} toggleCard={toggleCard} key={i} />

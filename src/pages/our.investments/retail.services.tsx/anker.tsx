@@ -47,7 +47,7 @@ export const Anker = () => {
                                 <br /><br /><br /><br /><br className="hidden lg:block" /><br className="hidden lg:block" /><br className="hidden lg:block" /><br className="hidden lg:block" /><br className="hidden lg:block" />
 
                             </p>
-                            <p className="text-[12px] md:text-[14px]">Visit <b><a className="hover:underline" href="https://www.arbico.ng" target="_blank">www.anker.ng</a></b> to learn more</p>
+                            <p className="text-[12px] md:text-[14px]">Visit <b><a className="hover:underline" href="https://www.hilti.com.ng/" target="_blank">www.anker.ng</a></b> to learn more</p>
 
                         </div>
 

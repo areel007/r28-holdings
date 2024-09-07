@@ -29,21 +29,13 @@ export const Afolabi = () => {
                     <div>
                         <h3 className="text-[20px] md:text-[28px] mb-[10px]">Afolabi Aiyeola</h3>
                         <p className="text-[14px] md:text-[16px] leading-[1.6] font-[300]">
-                            Afolabi Aiyeola has over 25 years of working experience in the
-                            construction industry, managing various large-scale commercial,
-                            residential, and institutional construction projects in different
-                            countries including Nigeria, USA and Angola. <br />
-                            <br />
-                            He is an effective business leader, offering expertise in
-                            operation management, relationship Building and contract
-                            negotiation. He holds a Bachelor of Science Degree in Civil
-                            Engineering from the University of Lagos and a Master of Science
-                            Degree in Civil Engineering with an emphasis in Construction
-                            Engineering and Management from Virginia Tech, USA. <br />
-                            <br />
-                            He is a member of the Institute of Directors Nigeria, Project
-                            Management Institute and a certified Project Management
-                            Professional. He is also an alumnus of the Lagos Business School.
+                            Afolabi Aiyeola brings over 30 years of varied work experience in the construction  industry, where he adeptly managed and steered large-scale commercial, residential, and  institutional projects across diverse geographies, including Nigeria, the USA, and Angola.  His leadership is marked by an array of expertise, including operations management and  strategic relationship building, compliance and contract negotiation.
+                            <br /><br />
+                            Afolabi’s academic achievements are notable, with a Bachelor of Science in Civil  Engineering from the University of Lagos and a Master of Science Degree in Civil  Engineering, with a specialized focus on Construction Engineering and Management,  from Virginia Tech, USA.
+                            <br /><br />
+                            He is a member of the Institute of Directors Nigeria, the Project Management Institute,  and holds the designation of Project Management Professional. Additionally, he is an  alumnus of the Lagos Business School, Pan Atlantic University.
+                            <br /><br />
+                            His credentials include certifications as a Project Management Professional and a  Compliance Professional. He is also registered with the Financial Reporting Council of  Nigeria and holds active memberships with the Chartered Institute of Directors Nigeria, Compliance Institute Nigeria, and the Project Management Institute.
                         </p>
                     </div>
                 </div>

@@ -18,7 +18,7 @@ export const Veenocks = () => {
                 <div className="w-[90%] max-w-[1248px] mx-auto h-full relative z-[2]">
                     <div className="h-full pt-[100px] pb-[20px] lg:pb-[100px] text-white flex flex-col justify-center">
                         {/* <p className="mb-[10px] uppercase text-[12px] md:text-[14px] tracking-[1px]">Manufacturing</p> */}
-                        <h1 className="text-[30px] xsm:text-[40px] lg:text-[50px] 3xl:text-[50px] leading-[1] font-[300]">Delivering healthcare projects <br className="hidden xl:block" />Creating Masterpieces, One Tile at a Time.</h1>
+                        <h1 className="text-[30px] xsm:text-[40px] lg:text-[50px] 3xl:text-[50px] leading-[1] font-[300]">Creating Masterpieces, One Tile at a Time.</h1>
                     </div>
                 </div>
             </div>
@@ -51,7 +51,10 @@ export const Veenocks = () => {
                                 Driven by an unwavering dedication to excellence, Veenocks endeavors to surpass customer expectations, aiming to be the ultimate choice in the tile industry.
                                 <br /><br /><br />
                             </p>
-                            <p className="text-[12px] md:text-[14px]">To learn more... visit <b><a className="hover:underline" href="https://www.veenocks.ng" target="_blank">www.veenocks.ng</a></b></p>
+                            <p className="text-[12px] md:text-[14px]">To learn more... visit <b><a className="hover:underline" href="https://www.veenocks.ng" target="_blank">www.veenocks.ng</a></b>
+                                <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <b><a href="https://posmoreti.com/" className="hover:underline">www.posmoreti.com</a></b>
+                            </p>
 
                         </div>
 

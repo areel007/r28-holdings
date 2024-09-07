@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import NewsImg from "../../assets/images/news&events.jpg"
+import LowCup from "../../assets/images/events/polo1.jpg"
+import LagosArena from "../../assets/images/lagoarena.jpg"
 import axios from "axios"
 
 type TNews = {
@@ -23,7 +25,7 @@ export const News = () => {
 
     const fetchNews = async () => {
         try {
-            const response = await axios.get('https://r28-api.onrender.com/api/news-and-events');
+            const response = await axios.get('https://r28-backend.onrender.com/api/news-and-events');
             setNews(response.data.newsAndEvents);
             setLoading(false)
         } catch (error) {
@@ -87,13 +89,15 @@ export const News = () => {
 
                 {loading ? <div className="mt-[40px] sm:mt-[50px] h-[400px]">
                     <p className="text-[18px] font-[500]">Loading news and events...</p>
-                </div> : <div className="grid grid-cols-1 sm:grid-cols-2 mt-[40px] sm:mt-[50px] gap-[30px] md:gap-[50px] max-w-[1000px]">
+                </div> : <div className="grid grid-cols-1 sm:grid-cols-2 mt-[40px] sm:mt-[50px] gap-[20px] md:gap-[40px]">
+
+
 
                     {
                         !searchInput ? news?.map(_news => <Link to={`/news-and-events/${_news._id}`} key={_news._id} className="grid grid-cols-[1fr] gap-[20px] group">
 
                             <div className="w-full h-[289.109px] bg-[#f5f5f5] overflow-hidden">
-                                <img src={`https://r28-api.onrender.com/${_news.newsImgUrl.split(",")[0]}`} alt="lagos arena" className="w-full h-full group-hover:scale-[1.3] ease-in-out transition" />
+                                <img src={_news.newsImgUrl} alt="lagos arena" className="w-full h-full group-hover:scale-[1.3] ease-in-out transition object-cover" />
                             </div>
                             <div>
                                 <h3 className="text-[20px] leading-[1.2] mb-[10px] font-[600]">{_news.title}</h3>
@@ -102,7 +106,7 @@ export const News = () => {
                         </Link>) : searchedNews?.map(_news => <Link to={`/news-and-events/${_news._id}`} key={_news._id} className="grid grid-cols-[1fr] gap-[20px] group">
 
                             <div className="w-full h-full overflow-hidden">
-                                <img src={`https://r28-api.onrender.com/${_news.newsImgUrl.split(",")[0]}`} alt="lagos arena" className="w-full h-full group-hover:scale-[1.3] ease-in-out transition" />
+                                <img src={`https://r28-backend.onrender.com/${_news.newsImgUrl.split(",")[0]}`} alt="lagos arena" className="w-full h-full group-hover:scale-[1.3] ease-in-out transition" />
                             </div>
                             <div>
                                 <h3 className="text-[20px] leading-[1.2] mb-[10px] font-[600]">{_news.title}</h3>
@@ -110,6 +114,32 @@ export const News = () => {
                             </div>
                         </Link>)
                     }
+
+                    <Link to="/news-and-events/lagos-arena" className="grid grid-cols-[1fr] gap-[20px] group">
+                        <div className="w-full h-[289.109px] bg-[#f5f5f5] overflow-hidden">
+                            <img src={LagosArena} alt="lagos arena" className="w-full h-full group-hover:scale-[1.3] ease-in-out transition object-cover" />
+                        </div>
+
+                        <div>
+                            <h3 className="text-[20px] leading-[1.2] mb-[10px] font-[600]">
+                                Innovation at its Core: Arbico Plc Drives Design and Construction of Lagos Arena
+                            </h3>
+                            <p className="text-[12px] text-gray-600">The Lagos Arena, boasting a staggering capacity of 12,000, emerges as not just a venue but an immersive experience, poised to host a diverse array of events ranging from music galas and electrifying sports showdowns to cultural spectacles. <br /> <b className="hover:underline">Read more</b></p>
+                        </div>
+                    </Link>
+
+                    <Link to="/news-and-events/low-cup" className="grid grid-cols-[1fr] gap-[20px] group">
+                        <div className="w-full h-[289.109px] bg-[#f5f5f5] overflow-hidden">
+                            <img src={LowCup} alt="lagos arena" className="w-full h-full group-hover:scale-[1.3] ease-in-out transition object-cover" />
+                        </div>
+
+                        <div>
+                            <h3 className="text-[20px] leading-[1.2] mb-[10px] font-[600]">
+                                Arbico Plc and R28 Elevate Low Cup Experience at The Lagos International Polo Tournament
+                            </h3>
+                            <p className="text-[12px] text-gray-600">The Lagos International Polo Tournament, amidst the vibrant ambience of horse hooves thundering across the turf and the spirited cheers of spectators, witnessed a memorable collaboration between Arbico Plc and the parent company, R28 Limited, as they co-sponsored the prestigious Low Cup. <br /> <b className="hover:underline">Read more</b></p>
+                        </div>
+                    </Link>
                 </div>}
             </div>
         </section>

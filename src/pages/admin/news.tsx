@@ -13,29 +13,6 @@ type TNews = {
 }
 
 export const NewsAndEvents = () => {
-    const [form, setForm] = useState({
-        title: '',
-        subtitle: '',
-        content: '',
-    });
-
-    const [selectedFiles, setSelectedFiles] = useState<FileList | null>(null);
-
-    const [news, setNews] = useState<null | TNews[]>(null)
-
-    const fetchNews = async () => {
-        const response = await axios.get('https://r28-api.onrender.com/api/news-and-events');
-        setNews(response.data.newsAndEvents);
-        console.log(news);
-        // try {
-
-
-
-        // } catch (error) {
-        //     console.error('Error fetching news:', error);
-        // }
-    };
-
     const toolbarOptions = [
         ['bold', 'italic', 'underline', 'strike'],
         ['blockquote', 'code-block'],
@@ -53,48 +30,51 @@ export const NewsAndEvents = () => {
         ['clean']
     ];
 
-    const onFileSelected = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const files = event.target.files;
-        if (files) {
-            setSelectedFiles(files);
+    const [form, setForm] = useState({
+        title: '',
+        subtitle: '',
+        base64: '',
+    });
+
+    const [blogImage, setBlogImage] = useState<string | ArrayBuffer | null>('')
+    const [value, setValue] = useState('')
+
+    const [news, setNews] = useState<null | TNews[]>(null)
+
+    const fetchNews = async () => {
+        const response = await axios.get('https://r28-backend.onrender.com/api/news-and-events');
+        setNews(response.data.newsAndEvents);
+    };
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>, _: string) => {
+        const { name, value, files } = e.target;
+
+        setForm({
+            ...form,
+            [name]: value
+        });
+
+        if (files && files[0]) {
+            const reader = new FileReader();
+            reader.readAsDataURL(files[0]);
+            reader.onload = () => {
+                setBlogImage(reader.result);
+            };
         }
-    };
 
-    const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-        setForm({
-            ...form,
-            [e.target.name]: e.target.value
-        });
-    };
-
-    const handleChangeContent = (content: string) => {
-        setForm({
-            ...form,
-            content: content
-        });
-    };
+    }
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+
         e.preventDefault()
 
-        const fd = new FormData()
-        fd.append("title", form.title);
-        fd.append("subtitle", form.subtitle);
-        fd.append("content", form.content);
-        if (selectedFiles) {
-            for (let i = 0; i < selectedFiles.length; i++) {
-                fd.append("news-files", selectedFiles[i]);
-            }
-        }
-        try {
-            if (!form.content) {
-                console.log("Content must not be empty.");
-                return;
-            }
-            await axios.post('http://localhost:3030/api/news-and-events', fd);
-        } catch (error) {
-            console.error('Error saving content:', error);
-        }
+
+        await axios.post('https://r28-backend.onrender.com/api/news-and-events', {
+            title: form.title,
+            subtitle: form.subtitle,
+            content: value,
+            newsImgUrl: blogImage,
+        });
 
         fetchNews()
     };
@@ -103,18 +83,13 @@ export const NewsAndEvents = () => {
         fetchNews()
     }, [])
 
-    useEffect(() => {
-        console.log(selectedFiles);
-    }, [selectedFiles]);
-
     const handleDeleteNewsAndEvents = async (e: React.MouseEvent<SVGSVGElement, MouseEvent>, id: string) => {
         e.preventDefault()
         try {
-            await axios.delete(`https://r28-api.onrender.com/api/news-and-events/${id}`)
+            await axios.delete(`https://r28-backend.onrender.com/api/news-and-events/${id}`)
             fetchNews()
         } catch (error) {
             console.log(error);
-
         }
     }
 
@@ -135,29 +110,31 @@ export const NewsAndEvents = () => {
                 <p className='mb-[10px] text-[#381313] text-[24px]'>Add news and events</p>
 
                 <form className="flex flex-col gap-[20px]" onSubmit={handleSubmit}>
-                    <textarea
+                    <input
+                        type='text'
                         name='title'
                         placeholder="News and Events Title"
                         className="p-[10px] border resize-none max-w-[400px]"
                         value={form.title}
-                        onChange={handleChange}
+                        onChange={(e) => handleChange(e, form.title)}
                         required
                     />
-                    <textarea
+                    <input
+                        type='text'
                         name='subtitle'
                         placeholder="News and Events Subtitle"
                         className="p-[10px] border resize-none max-w-[400px]"
                         value={form.subtitle}
-                        onChange={handleChange}
+                        onChange={(e) => handleChange(e, form.title)}
                         required
                     />
-                    <input type="file" onChange={onFileSelected} className="p-[10px] border resize-none max-w-[400px]" multiple required />
+                    <input type="file" onChange={(e) => handleChange(e, form.base64)} className="p-[10px] border resize-none max-w-[400px]" multiple required />
                     <div className='max-w-[800px]'>
                         <ReactQuill
                             modules={{ toolbar: toolbarOptions }}
                             theme="snow"
-                            value={form.content}
-                            onChange={handleChangeContent}
+                            value={value}
+                            onChange={setValue}
                         />
                     </div>
                     <button type='submit' className='w-[150px] bg-[#381313] text-white p-[10px]'>Submit</button>

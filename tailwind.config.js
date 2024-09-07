@@ -18,6 +18,9 @@ export default {
 
         "3xl": "1920px",
       },
+      colors: {
+        primary: "#381313",
+      },
     },
   },
   plugins: [],

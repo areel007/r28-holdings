@@ -15,10 +15,10 @@ import AFLImg from "../../assets/images/afl.jpg"
 import NivaferImg from "../../assets/images/nivafer.jpg"
 import VeenocksImg from "../../assets/images/veenocks.jpg"
 import LedcoImg from "../../assets/images/ledco.jpg"
-import OSCImg from "../../assets/images/osc.jpg"
+// import OSCImg from "../../assets/images/osc.jpg"
 import EcoImg from "../../assets/images/ecojoinery.jpg"
 import UtopianImg from "../../assets/images/utopian.jpg"
-import PosmoretiImg from "../../assets/images/posmoreti.jpg"
+// import PosmoretiImg from "../../assets/images/posmoreti.jpg"
 import AnkerImg from "../../assets/images/anker.jpg"
 import AACImg from "../../assets/images/aac.jpg"
 import PrestigeImg from "../../assets/images/prestige.jpg"
@@ -41,20 +41,12 @@ export const OurInvestments = () => {
             textBack: "construction & engineering solutions"
         },
         {
-            name: "Biswal",
-            to: "/our-investments/biswal",
-            img: BiswalImg,
-            imgBack: TelecomsImg,
-            sector: "telecommunication & technology solutions",
-            textBack: "telecoms & technology solutions"
-        },
-        {
-            name: "FIDC",
-            to: "/our-investments/fidc",
-            img: FIDCImg,
-            imgBack: RealEstateImg,
-            sector: "real estate",
-            textBack: "real estate"
+            name: "nivafer",
+            to: "/our-investments/nivafer",
+            img: NivaferImg,
+            imgBack: ConstructionImg,
+            sector: "construction & engineering solutions",
+            textBack: "construction & engineering solutions"
         },
         {
             name: "asaba airport company",
@@ -65,36 +57,20 @@ export const OurInvestments = () => {
             textBack: "aviation"
         },
         {
-            name: "prestige chen jun",
-            to: "/our-investments/prestige-chen-jun",
-            img: PrestigeImg,
-            imgBack: MiningImg,
-            sector: "mining",
-            textBack: "mining"
-        },
-        {
-            name: "AFL networks",
-            to: "/our-investments/afl",
-            img: AFLImg,
-            imgBack: TelecomsImg,
-            sector: "telecommunication & technology solutions",
-            textBack: "technology solutions"
-        },
-        {
-            name: "nivafer",
-            to: "/our-investments/nivafer",
-            img: NivaferImg,
-            imgBack: ConstructionImg,
-            sector: "construction & engineering solutions",
-            textBack: "construction & engineering solutions"
-        },
-        {
             name: "veenocks",
             to: "/our-investments/veenocks",
             img: VeenocksImg,
             imgBack: ConstructionImg,
             sector: "manufacturing",
             textBack: "manufacturing"
+        },
+        {
+            name: "Biswal",
+            to: "/our-investments/biswal",
+            img: BiswalImg,
+            imgBack: TelecomsImg,
+            sector: "telecommunication & technology solutions",
+            textBack: "telecoms & technology solutions"
         },
         {
             name: "LEDCo",
@@ -105,12 +81,20 @@ export const OurInvestments = () => {
             textBack: "infrastructure"
         },
         {
-            name: "OSC garments",
-            to: "/our-investments/osc",
-            img: OSCImg,
+            name: "FIDC",
+            to: "/our-investments/fidc",
+            img: FIDCImg,
+            imgBack: RealEstateImg,
+            sector: "real estate",
+            textBack: "real estate"
+        },
+        {
+            name: "anker support services",
+            to: "/our-investments/anker",
+            img: AnkerImg,
             imgBack: ConstructionImg,
-            sector: "manufacturing",
-            textBack: "manufacturing"
+            sector: "retail business",
+            textBack: "retail business"
         },
         {
             name: "eco joinery",
@@ -121,6 +105,14 @@ export const OurInvestments = () => {
             textBack: "manufacturing"
         },
         {
+            name: "prestige chen jun",
+            to: "/our-investments/prestige-chen-jun",
+            img: PrestigeImg,
+            imgBack: MiningImg,
+            sector: "mining",
+            textBack: "mining"
+        },
+        {
             name: "utopian consulting LLC",
             to: "/our-investments/utopian",
             img: UtopianImg,
@@ -129,21 +121,33 @@ export const OurInvestments = () => {
             textBack: "healthcare"
         },
         {
-            name: "posmoreti",
-            to: "/our-investments/posmoreti",
-            img: PosmoretiImg,
-            imgBack: ConstructionImg,
-            sector: "retail business",
-            textBack: "retail business"
+            name: "AFL networks",
+            to: "/our-investments/afl",
+            img: AFLImg,
+            imgBack: TelecomsImg,
+            sector: "telecommunication & technology solutions",
+            textBack: "technology solutions"
         },
-        {
-            name: "anker support services",
-            to: "/our-investments/anker",
-            img: AnkerImg,
-            imgBack: ConstructionImg,
-            sector: "retail business",
-            textBack: "retail business"
-        },
+
+        // {
+        //     name: "OSC garments",
+        //     to: "/our-investments/osc",
+        //     img: OSCImg,
+        //     imgBack: ConstructionImg,
+        //     sector: "manufacturing",
+        //     textBack: "manufacturing"
+        // },
+
+
+        // {
+        //     name: "posmoreti",
+        //     to: "/our-investments/posmoreti",
+        //     img: PosmoretiImg,
+        //     imgBack: ConstructionImg,
+        //     sector: "retail business",
+        //     textBack: "retail business"
+        // },
+
 
     ]
     const sectors = [
@@ -209,20 +213,20 @@ export const OurInvestments = () => {
 
 
 
-    const sortedCompanies = companies.sort((a, b) => {
-        const nameA = a.name.toLowerCase();
-        const nameB = b.name.toLowerCase();
+    // const sortedCompanies = companies.sort((a, b) => {
+    //     const nameA = a.name.toLowerCase();
+    //     const nameB = b.name.toLowerCase();
 
-        if (nameA < nameB) {
-            return -1;
-        }
+    //     if (nameA < nameB) {
+    //         return -1;
+    //     }
 
-        if (nameA > nameB) {
-            return 1;
-        }
+    //     if (nameA > nameB) {
+    //         return 1;
+    //     }
 
-        return 0;
-    })
+    //     return 0;
+    // })
 
 
     const toggleInvestmentsDropdown = () => {
@@ -241,9 +245,9 @@ export const OurInvestments = () => {
         // setInvestmentName(selectedSector)
 
         if (selectedSector === 'all sector') {
-            setCardSectors(sortedCompanies);
+            setCardSectors(companies);
         } else {
-            const selectedSectorObject = sortedCompanies.filter(sector => sector.sector === selectedSector);
+            const selectedSectorObject = companies.filter(sector => sector.sector === selectedSector);
             if (selectedSectorObject) {
                 setCardSectors(selectedSectorObject);
             }
@@ -259,9 +263,9 @@ export const OurInvestments = () => {
 
 
         if (selectedCompany === 'all companies') {
-            setCardSectors(sortedCompanies)
+            setCardSectors(companies)
         } else {
-            const selectedSectorObject = sortedCompanies.find(sector => sector.name === selectedCompany);
+            const selectedSectorObject = companies.find(sector => sector.name === selectedCompany);
             if (selectedSectorObject) {
                 setCardSectors([selectedSectorObject]);
             }

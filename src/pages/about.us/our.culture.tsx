@@ -1,13 +1,41 @@
-import OurCultureImg from "../../assets/images/core-value.jpg"
 import { Strip } from "../../components/Strip"
 import Integrity from "../../assets/images/integrity.svg"
 import Innovation from "../../assets/images/innovation.svg"
 import Excellence from "../../assets/images/excellence.svg"
+import { useState, useEffect } from "react"
+import axios from "axios"
 
 export const OurCulture = () => {
+    const [coreValues, setCoreValues] = useState({
+        integrity: "",
+        excellence: "",
+        innovation: "",
+    })
+
+    const [banner, setBanner] = useState("")
+
+    const getCoreValues = async () => {
+        const response = await axios.get("https://r28-backend.onrender.com/api/about/core-values/66bde3a3d05dbfe164810a76")
+
+        setCoreValues(response.data.coreValues)
+    }
+
+    const getBanner = async () => {
+        const response = await axios.get("https://r28-backend.onrender.com/api/about/core-values/banner-image/66c7531ead69f5b45fa7c721")
+
+        setBanner(response.data.coreValuesBanner.bannerImgString)
+
+    }
+
+
+
+    useEffect(() => {
+        getCoreValues()
+        getBanner()
+    }, []);
     return <>
         <section className="h-[70vh] 2xl:h-[50vh] w-full hero">
-            <img src={OurCultureImg} alt="r28 holding" className="w-full h-full object-cover" />
+            <img src={banner} alt="r28 holding" className="w-full h-full object-cover" />
             <div className="absolute inset-0">
                 <div className="w-[90%] max-w-[1248px] mx-auto h-full relative z-[2]">
                     <div className="h-full pt-[100px] pb-[20px] lg:pb-[100px] text-white flex flex-col justify-center">
@@ -30,7 +58,7 @@ export const OurCulture = () => {
                             <p className="text-gray-600 text-[16px] md:text-[18px] font-[300]">Cornerstone of our actions</p>
                         </div>
                         <p className="text-[14px] md:text-[16px]">
-                            Integrity forms the cornerstone of everything we do. We uphold the highest ethical standards in all our interactions, ensuring transparency, honesty, and accountability in every decision we make.
+                            {coreValues.integrity ? coreValues.integrity : "Integrity forms the cornerstone of everything we do. We uphold the highest ethical standards in all our interactions, ensuring transparency, honesty, and accountability in every decision we make."}
                         </p>
                     </div>
 
@@ -41,7 +69,7 @@ export const OurCulture = () => {
                             <p className="text-gray-600 text-[16px] md:text-[18px] font-[300]">Our guiding principle</p>
                         </div>
                         <p className="text-[14px] md:text-[16px]">
-                            Excellence is ingrained in our culture, driving us to constantly strive for the best possible outcomes. We are committed to delivering exceptional quality in our products, services, and operations, exceeding the expectations of our customers and stakeholders.
+                            {coreValues.excellence ? coreValues.excellence : "Excellence is ingrained in our culture, driving us to constantly strive for the best possible outcomes. We are committed to delivering exceptional quality in our products, services, and operations, exceeding the expectations of our customers and stakeholders."}
                         </p>
                     </div>
 
@@ -52,7 +80,7 @@ export const OurCulture = () => {
                             <p className="text-gray-600 text-[16px] md:text-[18px] font-[300]">Drives us forward</p>
                         </div>
                         <p className="text-[14px] md:text-[16px]">
-                            Innovation fuels our progress, inspiring us to think creatively and embrace change. We continuously seek new ways to improve and evolve, harnessing cutting-edge technologies and fresh ideas to drive growth and stay ahead in a dynamic marketplace.
+                            {coreValues.innovation ? coreValues.innovation : "Innovation fuels our progress, inspiring us to think creatively and embrace change. We continuously seek new ways to improve and evolve, harnessing cutting-edge technologies and fresh ideas to drive growth and stay ahead in a dynamic marketplace."}
                         </p>
                     </div>
                 </div>

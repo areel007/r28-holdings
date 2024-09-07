@@ -1,7 +1,22 @@
 import HeroVideo from "../assets/videos/R28xhome (1).webm"
 import { ArrowDown } from "../components/Arrow.Down"
+import axios from "axios"
+import { useState, useEffect } from "react"
 
 export const Hero = () => {
+    const [heroText, setHeroText] = useState("")
+
+
+    const getHeroText = async () => {
+        const response = await axios.get("https://r28-backend.onrender.com/api/home/hero/hero-text/66bdcc209be8fa17916b0a6c")
+        setHeroText(response.data.heroText.text);
+
+    }
+
+    useEffect(() => {
+        getHeroText()
+    }, []);
+
     return <section className="h-screen w-full hero">
         <video src={HeroVideo} controls autoPlay loop muted width={1920} height={500} className="object-cover w-full h-full"></video>
         <div className="absolute top-0 w-full h-full">
@@ -10,7 +25,7 @@ export const Hero = () => {
                 <div className="h-full pt-[100px] pb-[20px] lg:pb-[100px] grid grid-cols-1 lg:grid-cols-[1fr_auto] items-start gap-[30px] lg:gap-0">
                     <div className="h-full flex flex-col justify-center">
                         <p className="text-white pl-0 lg:pl-[10px]">Meet R28 Holdings</p>
-                        <h1 className="text-[50px] xsm:text-[60px] lg:text-[80px] 3xl:text-[100px] text-white leading-[1] font-[600]">Investing in Tomorrow's Possibilities Today!</h1>
+                        <h1 className="text-[50px] xsm:text-[60px] lg:text-[80px] 3xl:text-[100px] text-white leading-[1] font-[600]">{heroText ? heroText : "Investing in Tomorrow's Possibilities Today!"}</h1>
                     </div>
                     <div className="relative h-auto lg:h-full hidden lg:block">
                         {/* <div className="h-[108px] hidden lg:block"></div>

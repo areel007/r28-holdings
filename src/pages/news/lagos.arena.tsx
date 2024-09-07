@@ -52,26 +52,35 @@ export const LagosArena = () => {
         </section>
 
         <section>
-            <div className="w-[90%] max-w-[1248px] mx-auto py-[40px] md:py-[100px]">
-                <h1 className="text-[24px] md:text-[40px] leading-[1.2] mb-[25px] md:mb-[50px] font-[500] text-[#381313] max-w-[780px]">Innovation at its Core: Arbico Plc Drives Design and Construction of Lagos Arena</h1>
+            <div className="w-[90%] max-w-[1248px] mx-auto py-[40px] md:py-[100px] grid grid-cols-1 lg:grid-cols-[2fr_1fr] xl:grid-cols-[780px_1fr] gap-[30px] xl:gap-[100px]">
+                <div>
+                    <h1 className="text-[24px] md:text-[40px] leading-[1.2] mb-[25px] md:mb-[50px] font-[500] text-[#381313] max-w-[780px]">Innovation at its Core: Arbico Plc Drives Design and Construction of Lagos Arena</h1>
 
 
-                <img src={LagosArenaImg} alt="lagos arena" />
+                    <img src={LagosArenaImg} alt="lagos arena" />
 
-                <div className="mt-[28px] md:mt-[42px] max-w-[780px]">
-                    <p className="leading-[1.6] text-[14px] md:text-[16px] font-[300] text-gray-700">
-                        The Lagos Arena, boasting a staggering capacity of 12,000, emerges as not just a venue but an immersive experience, poised to host a diverse array of events ranging from music galas and electrifying sports showdowns to cultural spectacles. This architectural marvel stands as a testament to Arbico's dedication to quality and service, as the Engineering, Procurement, and Construction (EPC) contractor, who oversaw the design, procurement, and construction of the Lagos Arena.
-                        <br /><br />
-                        From groundbreaking to the final flourish, Arbico's construction prowess transformed blueprints into reality, culminating in the majestic Lagos Arena standing tall and ready to welcome the world. Beyond its physical presence, the arena holds profound significance for Nigeria's creative economy, catalyzing job creation, investments, and opportunities within the community.
-                        <br /><br />
-                        With Nigeria's vibrant music scene and a rapidly growing population exceeding 220 million, the $100 million Lagos Arena emerges as a groundbreaking initiative, poised to become the country's premier destination for live entertainment. Designed to host a diverse range of events, from global music performances to basketball games and UFC fights, the arena represents a significant milestone in Nigeria's cultural evolution.
-                        <br /><br />
-                        Anticipating over 200 events annually, the Arena aims to position itself as Africa's leading entertainment destination, offering a dedicated space for both local and international artists to showcase their talents. This endeavour not only propels the expansion of Nigeria's music, sports, and entertainment sectors but also creates over 1500 direct and indirect job opportunities, fostering economic growth and development.
-                        <br /><br />
-                        The groundbreaking ceremony symbolizes a new era in Nigeria's entertainment landscape, promising to elevate the country's cultural prominence on the global stage. As construction commences on this transformative project, the consortium's vision of a vibrant, dynamic arena in the heart of Lagos takes shape, laying the foundation for a future filled with excitement, creativity, and boundless possibilities.
+                    <div className="mt-[28px] md:mt-[42px] max-w-[780px]">
+                        <p className="leading-[1.6] text-[14px] md:text-[16px] font-[300] text-gray-700">
+                            The Lagos Arena, boasting a staggering capacity of 12,000, emerges as not just a venue but an immersive experience, poised to host a diverse array of events ranging from music galas and electrifying sports showdowns to cultural spectacles. This architectural marvel stands as a testament to Arbico's dedication to quality and service, as the Engineering, Procurement, and Construction (EPC) contractor, who oversaw the design, procurement, and construction of the Lagos Arena.
+                            <br /><br />
+                            From groundbreaking to the final flourish, Arbico's construction prowess transformed blueprints into reality, culminating in the majestic Lagos Arena standing tall and ready to welcome the world. Beyond its physical presence, the arena holds profound significance for Nigeria's creative economy, catalyzing job creation, investments, and opportunities within the community.
+                            <br /><br />
+                            With Nigeria's vibrant music scene and a rapidly growing population exceeding 220 million, the $100 million Lagos Arena emerges as a groundbreaking initiative, poised to become the country's premier destination for live entertainment. Designed to host a diverse range of events, from global music performances to basketball games and UFC fights, the arena represents a significant milestone in Nigeria's cultural evolution.
+                            <br /><br />
+                            Anticipating over 200 events annually, the Arena aims to position itself as Africa's leading entertainment destination, offering a dedicated space for both local and international artists to showcase their talents. This endeavour not only propels the expansion of Nigeria's music, sports, and entertainment sectors but also creates over 1500 direct and indirect job opportunities, fostering economic growth and development.
+                            <br /><br />
+                            The groundbreaking ceremony symbolizes a new era in Nigeria's entertainment landscape, promising to elevate the country's cultural prominence on the global stage. As construction commences on this transformative project, the consortium's vision of a vibrant, dynamic arena in the heart of Lagos takes shape, laying the foundation for a future filled with excitement, creativity, and boundless possibilities.
 
 
-                    </p>
+                        </p>
+                    </div>
+                </div>
+
+                <div>
+                    <p className="mb-[10px] text-[16px] font-[300]">Latest news and events</p>
+                    <a className="text-[14px] hover:underline" href="/news-and-events/low-cup">
+                        Arbico Plc and R28 Elevate Low Cup Experience at The Lagos International Polo Tournament
+                    </a>
                 </div>
             </div>
         </section>

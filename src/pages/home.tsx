@@ -1,6 +1,7 @@
 import { useState, ReactNode, useEffect } from "react"
 import { Card } from "../components/Card"
 import { Hero } from "../layouts/Hero"
+import axios from "axios"
 // import { Link } from "react-router-dom"
 import { ConstructionEngineering } from "../assets/icons/sectors"
 import { RealEstateIcon } from "../assets/icons/sectors"
@@ -210,21 +211,63 @@ export const Home = () => {
         });
     };
 
+    // overview
+    const [overview, setOverview] = useState({
+        highlight: "",
+        content: ""
+    })
+
+    const getOverview = async () => {
+        const response = await axios.get("https://r28-backend.onrender.com/api/home/overview/66bdcca99be8fa17916b0a74")
+        setOverview(response.data.overview)
+    }
+
+    // statistics
+    const [statistics, setStatistics] = useState({
+        sectors: "",
+        portfolios: "",
+        employees: "",
+        operations: "",
+    })
+
+    const getStatistics = async () => {
+        const response = await axios.get("https://r28-backend.onrender.com/api/home/stats/66bdcd3f9be8fa17916b0a84")
+        setStatistics(response.data.stats)
+    }
+
+    // what we do
+    const [whatWeDo, setWhatWeDo] = useState({
+        highlight: "",
+        content: ""
+    })
+
+    const getWhatWeDo = async () => {
+        const response = await axios.get("https://r28-backend.onrender.com/api/home/what-we-do/66bdcdc89be8fa17916b0a92");
+        setWhatWeDo(response.data.whatWeDo)
+    }
+
+    useEffect(() => {
+        getOverview()
+        getStatistics()
+        getWhatWeDo()
+    }, []);
+
     // scroll top
     useEffect(() => { window.scrollTo(0, 0) }, [])
 
     return <>
         <Hero />
+
         <div className="w-full h-auto py-[60px] md:py-[100px]" id="overview">
             <div className="max-w-[1280px] w-[90%] mx-auto">
                 <span className="text-[14px] md:text-[16px]">Overview</span>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-[20px] md:gap-[30px] lg:gap-[60px] mt-[10px]">
-                    <p className="text-[30px] md:text-[40px] lg:text-[60px] font-[300] leading-[1.2] md:leading-[1.1]">Focused on Impact</p>
+                    <p className="text-[30px] md:text-[40px] lg:text-[60px] font-[300] leading-[1.2] md:leading-[1.1]">{overview.highlight ? overview.highlight : "Focused on Impact"}</p>
                     <div>
-                        <p className="text-[14px] md:text-[16px] font-[300] mb-[16px] leading-[1.6]">R28 is a dynamic private investment holding company based in Nigeria, dedicated to creating sustainable value through strategic investments across various industry sectors. Founded on the principles of entrepreneurship and a commitment to excellence, we leverage local market insights to identify and capitalise on investment opportunities that spur economic growth and deliver tangible results.
+                        <p className="text-[14px] md:text-[16px] font-[300] mb-[16px] leading-[1.6]">{overview.content ? <span dangerouslySetInnerHTML={{ __html: overview.content }} /> : <span>R28 is a dynamic private investment holding company based in Nigeria, dedicated to creating sustainable value through strategic investments across various industry sectors. Founded on the principles of entrepreneurship and a commitment to excellence, we leverage local market insights to identify and capitalise on investment opportunities that spur economic growth and deliver tangible results.
                             <br /><br />
 
-                            Our commitment to innovation, sustainable growth, and collaboration underpins our diversified investment strategies across the construction, real estate, aviation, oil & gas, mining, telecommunications, and manufacturing sectors. We are committed to generating long-term value and positive socio-economic impact.
+                            Our commitment to innovation, sustainable growth, and collaboration underpins our diversified investment strategies across the construction, real estate, aviation, oil & gas, mining, telecommunications, and manufacturing sectors. We are committed to generating long-term value and positive socio-economic impact.</span>}
                         </p>
 
                         {/* <Link to="/overviews" className="flex items-center gap-[20px]">
@@ -236,31 +279,32 @@ export const Home = () => {
                 </div>
             </div>
         </div>
+
         <div className="stat py-[60px] md:py-[100px]">
             <div className="max-w-[1248px] w-[90%] mx-auto relative z-[2] grid grid-cols-1 gap-[50px] xl:gap-[100px]">
                 <h1 className="text-white text-[40px] md:text-[50px] lg:text-[50px] leading-[1] font-[300]">R28 at a Glance</h1>
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-[40px]">
                     <div className="">
-                        <span className="block text-[50px] 2xl:text-[80px] text-white">10</span>
+                        <span className="block text-[50px] 2xl:text-[80px] text-white">{statistics.sectors ? statistics.sectors : "10"}</span>
                         <span className="text-gray-300 text-[14px] md:text-[16px]">Business Sectors</span>
                     </div>
 
                     <div className="border-l border-white pl-[20px] md:pl-[40px]">
-                        <span className="block text-[50px] 2xl:text-[80px] text-white">14</span>
+                        <span className="block text-[50px] 2xl:text-[80px] text-white">{statistics.portfolios ? statistics.portfolios : "14"}</span>
                         <span className="text-gray-300 text-[14px] md:text-[16px]">
                             Active Portfolio Companies
                         </span>
                     </div>
 
                     <div className="border-l-none lg:border-l border-white pl-0 lg:pl-[40px]">
-                        <span className="block text-[50px] 2xl:text-[80px] text-white">2000+</span>
+                        <span className="block text-[50px] 2xl:text-[80px] text-white">{statistics.employees ? statistics.employees : "2000+"}</span>
                         <span className="text-gray-300 text-[14px] md:text-[16px]">
                             Professional Employees
                         </span>
                     </div>
 
                     <div className="border-l border-white pl-[20px] md:pl-[40px]">
-                        <span className="block text-[50px] 2xl:text-[80px] text-white">100</span>
+                        <span className="block text-[50px] 2xl:text-[80px] text-white">{statistics.operations ? statistics.operations : "100"}</span>
                         <span className="text-gray-300 text-[14px] md:text-[16px]">
                             Operation professionals with specialised sector knowledge and experience
                         </span>
@@ -282,13 +326,13 @@ export const Home = () => {
                 </div>
             </div>
         </div>
+
         <div className="py-[60px] md:py-[100px]">
             <div className="max-w-[1248px] w-[90%] mx-auto">
                 <span>What we do</span>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-[20px] md:gap-[30px] lg:gap-[50px] mb-[40px] lg:mb-[100px] mt-[10px]">
-                    <p className="text-[30px] md:text-[40px] font-[300] leading-[1.2] md:leading-[1.1]">Building Valuable and Sustainable Businesses</p>
-                    <p className="text-[14px] md:text-[16px] font-[300] mb-[16px] leading-[1.6]">
-                        Collectively, our companies represent our involvement across ten (10) sectors committed to delivering sustainable value for our stakeholders while enhancing societal impact.</p>
+                    <p className="text-[30px] md:text-[40px] font-[300] leading-[1.2] md:leading-[1.1]">{whatWeDo.highlight ? whatWeDo.highlight : "Building Valuable and Sustainable Businesses"}</p>
+                    <p className="text-[14px] md:text-[16px] font-[300] mb-[16px] leading-[1.6]" dangerouslySetInnerHTML={{ __html: whatWeDo.content ? whatWeDo.content : "Collectively, our companies represent our involvement across ten (10) sectors committed to delivering sustainable value for our stakeholders while enhancing societal impact." }} />
                 </div>
                 <div className="w-full max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-4 gap-[30px]">
 

@@ -51,33 +51,44 @@ export const LowCup = () => {
         </section>
 
         <section>
-            <div className="w-[90%] max-w-[1248px] mx-auto pt-[40px] md:pt-[100px]">
-                <h1 className="text-[24px] md:text-[40px] leading-[1.2] mb-[25px] md:mb-[50px] font-[500] text-[#381313] max-w-[780px]">
-                    Arbico Plc and R28 Elevate Low Cup Experience at The Lagos International Polo Tournament
-                </h1>
+            <div className="w-[90%] max-w-[1248px] mx-auto py-[40px] md:py-[100px] grid grid-cols-1 lg:grid-cols-[2fr_1fr] xl:grid-cols-[780px_1fr] gap-[30px] xl:gap-[100px]">
+                <div>
+                    <h1 className="text-[24px] md:text-[40px] leading-[1.2] mb-[25px] md:mb-[50px] font-[500] text-[#381313] max-w-[780px]">
+                        Arbico Plc and R28 Elevate Low Cup Experience at The Lagos International Polo Tournament
+                    </h1>
 
 
-                <div className="w-full h-[220px] md:h-[400px] bg-gray-500 max-w-[780px]"></div>
+                    <div className="w-full h-[220px] md:h-[400px] bg-gray-500 max-w-[780px]">
+                        <img src={galleryImg1} alt="lagos arena" className="w-full h-full object-cover" />
+                    </div>
 
-                <div className="mt-[28px] md:mt-[42px] max-w-[780px]">
-                    <p className="leading-[1.6] text-[14px] md:text-[16px] font-[300] text-gray-700">
-                        The Lagos International Polo Tournament, amidst the vibrant ambience of horse hooves thundering across the turf and the spirited cheers of spectators, witnessed a memorable collaboration between Arbico Plc and the parent company, R28 Limited, as they co-sponsored the prestigious Low Cup.
-                        <br /><br />
-                        Held at the Lagos Polo Club, the event fused polo excellence, sociability, and relaxed sophistication. The tournament served as a perfect blend of local enthusiasts, seasoned professionals, and renowned polo players and enthusiasts from all over the world. The tournament not only served as a hub for showcasing participants' prowess but also strengthened existing bonds and fostered a sense of camaraderie among lovers of the polo sport.
-                        <br /><br />
-                        With Arbico Plc's longstanding dedication to promoting sportsmanship and R28's commitment to excellence, this partnership brought an added dimension to the tournament, elevating the experience for players and attendees alike. The Low Cup garnered heightened attention as a result of this collaboration.
-                        <br /><br />
-                        Among the different cups contested during the tournament, the Low Cup stood out as a delightful and leisurely affair. Teams with handicaps ranging from +2 to +7 competed fiercely, yet with a sense of brotherhood that exemplified the spirit of the sport. The final showdown on February 11th, 2024, saw Lagos A+/A1 & Lagos MSD Baby Bear emerge as the contenders, with Lagos A+/A One clinching victory in Arbico's Low Cup. Spanning from February 6th to the 11th, the tournament concluded with an exciting presentation ceremony where Mr. Eyo Asuquo and Mr. Afolabi Aiyeola, Executive Directors of Arbico Plc and R28 Limited respectively, bestowed the cup upon the deserving winners.
-                        <br /><br />
-                        Arbico Plc and R28 curated an unforgettable experience for the Low Cup, transcending mere competition to create an atmosphere of relaxation and enjoyment. Spectators lounged in elegant marquees, sipping chilled beverages and feasting on luscious dishes. Within the exclusive VIP lounge, hosted by Arbico Plc and R28, dignitaries, socialites, and polo enthusiasts convened alongside representatives from various R28 subsidiary companies and their guests. Notable figures such as Mr. Chuks Wornu, Managing Director of Nivafer Engineering, Mr. Richard Shittu, CEO of Outposts Investment Limited and owner, Koko Beach Resort, and Mr. Christophe Penninck, Managing Director of Asaba Airport Company, graced the gathering, fostering business connections and nurturing friendships.
-                        <br /><br />
-                        As the sun set over the Lagos Polo Club, casting a golden glow over the proceedings, participants and spectators alike departed with cherished memories of an unforgettable event. The Lagos International Polo Tournament, with the support of Arbico Plc and R28, had once again affirmed its status as a premier destination for polo enthusiasts and aficionados of leisure alike.
+                    <div className="mt-[28px] md:mt-[42px] max-w-[780px]">
+                        <p className="leading-[1.6] text-[14px] md:text-[16px] font-[300] text-gray-700">
+                            The Lagos International Polo Tournament, amidst the vibrant ambience of horse hooves thundering across the turf and the spirited cheers of spectators, witnessed a memorable collaboration between Arbico Plc and the parent company, R28 Limited, as they co-sponsored the prestigious Low Cup.
+                            <br /><br />
+                            Held at the Lagos Polo Club, the event fused polo excellence, sociability, and relaxed sophistication. The tournament served as a perfect blend of local enthusiasts, seasoned professionals, and renowned polo players and enthusiasts from all over the world. The tournament not only served as a hub for showcasing participants' prowess but also strengthened existing bonds and fostered a sense of camaraderie among lovers of the polo sport.
+                            <br /><br />
+                            With Arbico Plc's longstanding dedication to promoting sportsmanship and R28's commitment to excellence, this partnership brought an added dimension to the tournament, elevating the experience for players and attendees alike. The Low Cup garnered heightened attention as a result of this collaboration.
+                            <br /><br />
+                            Among the different cups contested during the tournament, the Low Cup stood out as a delightful and leisurely affair. Teams with handicaps ranging from +2 to +7 competed fiercely, yet with a sense of brotherhood that exemplified the spirit of the sport. The final showdown on February 11th, 2024, saw Lagos A+/A1 & Lagos MSD Baby Bear emerge as the contenders, with Lagos A+/A One clinching victory in Arbico's Low Cup. Spanning from February 6th to the 11th, the tournament concluded with an exciting presentation ceremony where Mr. Eyo Asuquo and Mr. Afolabi Aiyeola, Executive Directors of Arbico Plc and R28 Limited respectively, bestowed the cup upon the deserving winners.
+                            <br /><br />
+                            Arbico Plc and R28 curated an unforgettable experience for the Low Cup, transcending mere competition to create an atmosphere of relaxation and enjoyment. Spectators lounged in elegant marquees, sipping chilled beverages and feasting on luscious dishes. Within the exclusive VIP lounge, hosted by Arbico Plc and R28, dignitaries, socialites, and polo enthusiasts convened alongside representatives from various R28 subsidiary companies and their guests. Notable figures such as Mr. Chuks Wornu, Managing Director of Nivafer Engineering, Mr. Richard Shittu, CEO of Outposts Investment Limited and owner, Koko Beach Resort, and Mr. Christophe Penninck, Managing Director of Asaba Airport Company, graced the gathering, fostering business connections and nurturing friendships.
+                            <br /><br />
+                            As the sun set over the Lagos Polo Club, casting a golden glow over the proceedings, participants and spectators alike departed with cherished memories of an unforgettable event. The Lagos International Polo Tournament, with the support of Arbico Plc and R28, had once again affirmed its status as a premier destination for polo enthusiasts and aficionados of leisure alike.
 
 
-                    </p>
+                        </p>
+                    </div>
+                </div>
+
+                <div>
+                    <p className="mb-[10px] text-[16px] font-[300]">Latest news and events</p>
+                    <a className="text-[14px] hover:underline" href="/news-and-events/lagos-arena">
+                        Innovation at its Core: Arbico Plc Drives Design and Construction of Lagos Arena
+                    </a>
                 </div>
             </div>
-        </section>
+        </section >
 
 
         <section>

@@ -27,11 +27,11 @@ import { AFL } from "./pages/our.investments/telecomms/afl"
 import { Ledco } from "./pages/our.investments/aviation/ledco"
 import { Anker } from "./pages/our.investments/retail.services.tsx/anker"
 import { PrestigeChenJun } from "./pages/our.investments/mining/prestige.chen.jun"
-import { OSC } from "./pages/our.investments/manufacturing/osc"
+// import { OSC } from "./pages/our.investments/manufacturing/osc"
 import { EcoJoinery } from "./pages/our.investments/manufacturing/eco.joinery"
 import { Utopian } from "./pages/our.investments/healthcare/utopian"
 import { Veenocks } from "./pages/our.investments/manufacturing/veenocks"
-import { Posmoreti } from "./pages/our.investments/retail.services.tsx/posmoreti"
+// import { Posmoreti } from "./pages/our.investments/retail.services.tsx/posmoreti"
 import { SirKessington } from "./pages/about.us/leadership/Sir.Kessington"
 import { Adebisi } from "./pages/about.us/leadership/Adebisi"
 import { Afolabi } from "./pages/about.us/leadership/Afolabi"
@@ -45,6 +45,11 @@ import { Dashboard } from "./pages/admin/dashboard"
 import { ProtectedRoute } from "./layouts/ProtectedRoute"
 import { NewsAndEvents } from "./pages/admin/news"
 import { SingleNews } from "./pages/news/_news"
+import { CMSAboutUs } from "./pages/admin/about.us"
+import { CMSApproach } from "./pages/admin/approach"
+import { CMSStrategicAlliances } from "./pages/admin/strategic-alliances"
+import { CMSHome } from "./pages/admin/home"
+import { CMSSettings } from "./pages/admin/settings"
 
 type TMenu = {
   name: string;
@@ -149,10 +154,15 @@ function App() {
     }
 
     try {
-      const response = await axios.post("https:/r28-api.onrender.com/api/auth/login", { username: form.username, password: form.password })
-      console.log(response.data);
-      window.localStorage.setItem("isLoggedIn", "true")
+      const response = await axios.post("https://r28-backend.onrender.com/api/auth/login", { username: form.username, password: form.password })
+      window.sessionStorage.setItem("isLoggedIn", "true")
+      window.sessionStorage.setItem("token", response.data.token)
+      window.sessionStorage.setItem("role", response.data.role)
       window.location.href = "/admin/dashboard"
+
+      console.log(response.data);
+
+
 
     } catch (error) {
       setErrMsg("try again with the correct credentials")
@@ -164,7 +174,7 @@ function App() {
 
     // if (form.username === '889379027' && form.password === 'Rosiedixon196') {
     //   setIsLoggedIn(true)
-    //   window.localStorage.setItem('isLoggedIn', 'true')
+    //   window.sessionStorage.setItem('isLoggedIn', 'true')
     // }
     // else setErrMsg('Wrong sign in credentials')
 
@@ -227,11 +237,15 @@ function App() {
         <Route path="/our-investments/ledco" element={<Ledco />} />
         <Route path="/our-investments/anker" element={<Anker />} />
         <Route path="/our-investments/prestige-chen-jun" element={<PrestigeChenJun />} />
-        <Route path="/our-investments/osc" element={<OSC />} />
+
+        {/* <Route path="/our-investments/osc" element={<OSC />} /> */}
+
         <Route path="/our-investments/eco-joinery" element={<EcoJoinery />} />
         <Route path="/our-investments/utopian" element={<Utopian />} />
         <Route path="/our-investments/veenocks" element={<Veenocks />} />
-        <Route path="/our-investments/posmoreti" element={<Posmoreti />} />
+
+        {/* <Route path="/our-investments/posmoreti" element={<Posmoreti />} /> */}
+
         <Route path="/our-investments/mining" element={<Mining />} />
         <Route path="/about-us/leadership/sir-kesington" element={<SirKessington />} />
         <Route path="/about-us/leadership/adebisi" element={<Adebisi />} />
@@ -242,10 +256,30 @@ function App() {
         <Route path="/news-and-events/:id" element={<SingleNews />} />
         <Route path="/news-and-events/lagos-arena" element={<LagosArena />} />
         <Route path="/news-and-events/low-cup" element={<LowCup />} />
-        <Route path="/admin/login" element={<Login errMsg={errMsg} form={form} handleChange={handleChange} handleLogin={handleLogin} isSignedIn={window.localStorage.getItem('isLoggedIn')} />} />
-        <Route path="/admin/dashboard" element={<ProtectedRoute isAuthenticated={window.localStorage.getItem('isLoggedIn')} redirect="/admin/login" />}>
+        <Route path="/admin/login" element={<Login errMsg={errMsg} form={form} handleChange={handleChange} handleLogin={handleLogin} isSignedIn={window.sessionStorage.getItem('isLoggedIn')} />} />
+        <Route path="/admin/dashboard" element={<ProtectedRoute isAuthenticated={window.sessionStorage.getItem('isLoggedIn')} redirect="/admin/login" />}>
           <Route path="/admin/dashboard" element={<Dashboard />}>
+            <Route index element={<CMSHome />} />
+          </Route>
+
+          <Route path="/admin/dashboard/news" element={<Dashboard />}>
             <Route index element={<NewsAndEvents />} />
+          </Route>
+
+          <Route path="/admin/dashboard/about" element={<Dashboard />}>
+            <Route index element={<CMSAboutUs />} />
+          </Route>
+
+          <Route path="/admin/dashboard/approach" element={<Dashboard />}>
+            <Route index element={<CMSApproach />} />
+          </Route>
+
+          <Route path="/admin/dashboard/strategic-alliances" element={<Dashboard />}>
+            <Route index element={<CMSStrategicAlliances />} />
+          </Route>
+
+          <Route path="/admin/dashboard/settings" element={<Dashboard />}>
+            <Route index element={<CMSSettings />} />
           </Route>
         </Route>
         <Route path="*" element={<NotFound />} />
@@ -256,3 +290,6 @@ function App() {
 }
 
 export default App
+
+// super_admin
+// #TechAdmin$!
